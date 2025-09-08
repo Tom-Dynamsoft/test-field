@@ -195,6 +195,30 @@
         margin-left: 5px;
       }
 
+      .collapsible-header {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .collapsible-content {
+        display: none;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .collapsible-content.expanded {
+        display: block;
+      }
+
+      .toggle-arrow {
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .toggle-arrow.expanded {
+        transform: rotate(90deg);
+      }
+
       .footer {
         color: #e2e8f0;
         margin-top: 60px;
@@ -321,58 +345,69 @@
       </div>
 
       <div class="section">
-        <div class="section-header">
+        <div class="section-header collapsible-header" onclick="toggleOption2()">
           <span class="option-badge">Option 2</span>
           <span>Already working on a project?</span>
+          <span class="toggle-arrow">▶</span>
         </div>
-        <div class="section-description"><strong>Step 1:</strong> Generate a Trial License</div>
-        <div class="section-description important">
+        <div class="collapsible-content" id="option2-content">
+          <div class="section-description"><strong>Step 1:</strong> Get a Trial License</div>
+          <div class="section-description important" hidden>
+            <p class="f14">
+              Unlike the ZIP package, this option requires you to manually request a trial license key. The license will be sent to your email immediately.
+            </p>
+          </div>
+          <div class="section-description">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <input type="email" id="email-input" placeholder="YOUR-CURRENT-LICENSE-OR-EMPTY" 
+                     style="flex: 1; padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; outline: none;">
+              <button class="download-btn" onclick="generateLicense()" style="margin: 0; white-space: nowrap;">
+                Reveal/Generate
+              </button>
+            </div>
+          </div>
+          <div class="section-description"><strong>Step 2:</strong> Reference the SDK directly from CDN:</div>
+
+          <div class="code-section">
+            <div class="code-header">
+              <div class="code-title">CDN Reference</div>
+              <button class="copy-btn" onclick="copyToClipboard('cdn-install')">Copy</button>
+            </div>
+            <div class="code-block" id="cdn-install">
+              &lt;script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.0.6000/dist/dbr.bundle.js"&gt;&lt;/script&gt;
+            </div>
+          </div>
+
+          <div class="section-description">Or install the SDK via NPM:</div>
+
+          <div class="code-section">
+            <div class="code-header">
+              <div class="code-title">NPM Installation</div>
+              <button class="copy-btn" onclick="copyToClipboard('npm-install')">Copy</button>
+            </div>
+            <div class="code-block" id="npm-install">npm i dynamsoft-barcode-reader-bundle@11.0.6000 -E</div>
+
+            <div class="code-header">
+              <div class="code-title">Or with Yarn:</div>
+              <button class="copy-btn" onclick="copyToClipboard('npm-install')">Copy</button>
+            </div>
+            <div class="code-block" id="npm-install">yarn add dynamsoft-barcode-reader-bundle@11.0.6000 -E</div>
+          </div>
+          <div class="section-description"><strong>Step 3:</strong> Use your trial license</div>
           <p class="f14">
-            Unlike the ZIP package, this option requires you to manually request a trial license key. The license will be sent to your email immediately.
+            📖 Refer to one of our
+            <a href="https://github.com/Dynamsoft/barcode-reader-javascript-samples.git" target="_blank" style="color: #3b82f6; text-decoration: none"
+              >samples on GitHub</a
+            >
+            to see where to place your trial license. For more information, refer to the
+            <a
+              href="https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/user-guide/barcode-scanner.html"
+              target="_blank"
+              style="color: #3b82f6; text-decoration: none"
+              >JavaScript User Guide</a
+            >
           </p>
-          <button class="download-btn" onclick="generateLicense()">Generate a License</button>
         </div>
-        <div class="section-description"><strong>Step 2:</strong> Reference the SDK directly from CDN:</div>
-
-        <div class="code-section">
-          <div class="code-header">
-            <div class="code-title">CDN Reference</div>
-            <button class="copy-btn" onclick="copyToClipboard('cdn-install')">Copy</button>
-          </div>
-          <div class="code-block" id="cdn-install">
-            &lt;script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.0.6000/dist/dbr.bundle.js"&gt;&lt;/script&gt;
-          </div>
-        </div>
-
-        <div class="section-description">Or install the SDK via NPM:</div>
-
-        <div class="code-section">
-          <div class="code-header">
-            <div class="code-title">NPM Installation</div>
-            <button class="copy-btn" onclick="copyToClipboard('npm-install')">Copy</button>
-          </div>
-          <div class="code-block" id="npm-install">npm i dynamsoft-barcode-reader-bundle@11.0.6000 -E</div>
-
-          <div class="code-header">
-            <div class="code-title">Or with Yarn:</div>
-            <button class="copy-btn" onclick="copyToClipboard('npm-install')">Copy</button>
-          </div>
-          <div class="code-block" id="npm-install">yarn add dynamsoft-barcode-reader-bundle@11.0.6000 -E</div>
-        </div>
-        <div class="section-description"><strong>Step 3:</strong> Use your trial license</div>
-        <p class="f14">
-          📖 Refer to one of our
-          <a href="https://github.com/Dynamsoft/barcode-reader-javascript-samples.git" target="_blank" style="color: #3b82f6; text-decoration: none"
-            >samples on GitHub</a
-          >
-          to see where to place your trial license. For more information, refer to the
-          <a
-            href="https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/user-guide/barcode-scanner.html"
-            target="_blank"
-            style="color: #3b82f6; text-decoration: none"
-            >JavaScript User Guide</a
-          >
-        </p>
       </div>
 
       <div class="footer" hidden>
@@ -444,6 +479,21 @@
 
       function navigateToMobile() {
         alert("Redirecting to Mobile toolkit download page...");
+      }
+
+      function toggleOption2() {
+        const content = document.getElementById("option2-content");
+        const arrow = document.querySelector(".toggle-arrow");
+
+        if (content.classList.contains("expanded")) {
+          content.classList.remove("expanded");
+          arrow.classList.remove("expanded");
+          arrow.textContent = "▶";
+        } else {
+          content.classList.add("expanded");
+          arrow.classList.add("expanded");
+          arrow.textContent = "▼";
+        }
       }
     </script>
   </body>
