@@ -325,18 +325,14 @@
           <span class="option-badge">Option 2</span>
           <span>Already working on a project?</span>
         </div>
+        <div class="section-description"><strong>Step 1:</strong> Generate a Trial License</div>
         <div class="section-description important">
-          <div class="generate-btn">
-            <a href="javascript:;" onclick="generateLicense()">
-              <span class="loader"></span>
-            </a>
-            <p class="f14">
-              Unlike the ZIP package, this option requires you to manually request a trial license key. The license will be sent to your email immediately.
-            </p>
-            <button class="download-btn" onclick="generateLicense()">Generate a License</button>
-          </div>
+          <p class="f14">
+            Unlike the ZIP package, this option requires you to manually request a trial license key. The license will be sent to your email immediately.
+          </p>
+          <button class="download-btn" onclick="generateLicense()">Generate a License</button>
         </div>
-        <div class="section-description">Reference the SDK directly from CDN:</div>
+        <div class="section-description"><strong>Step 2:</strong> Reference the SDK directly from CDN:</div>
 
         <div class="code-section">
           <div class="code-header">
@@ -362,16 +358,21 @@
             <button class="copy-btn" onclick="copyToClipboard('npm-install')">Copy</button>
           </div>
           <div class="code-block" id="npm-install">yarn add dynamsoft-barcode-reader-bundle@11.0.6000 -E</div>
-
-          <div class="code-block">
-            <span class="code-comment">// After installation, initialize with your trial license key:</span><br />
-            <div class="code-block" id="npm-install">BarcodeReader.license = "YOUR-TRIAL-KEY-HERE";</div>
-          </div>
         </div>
-        
-        <div class="section-description" style="margin-top: 20px; font-style: italic; color: #64748b;">
-          📖 For more information, refer to the <a href="https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/user-guide/barcode-scanner.html" target="_blank" style="color: #3b82f6; text-decoration: none;">JavaScript User Guide</a>
-        </div>
+        <div class="section-description"><strong>Step 3:</strong> Use your trial license</div>
+        <p class="f14">
+          📖 Refer to one of our
+          <a href="https://github.com/Dynamsoft/barcode-reader-javascript-samples.git" target="_blank" style="color: #3b82f6; text-decoration: none"
+            >samples on GitHub</a
+          >
+          to see where to place your trial license. For more information, refer to the
+          <a
+            href="https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/user-guide/barcode-scanner.html"
+            target="_blank"
+            style="color: #3b82f6; text-decoration: none"
+            >JavaScript User Guide</a
+          >
+        </p>
       </div>
 
       <div class="footer" hidden>
