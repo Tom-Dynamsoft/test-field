@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Dynamsoft Barcode Reader Free Trial</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: #f8f9fa;
+        padding: 40px 20px;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 50px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        text-align: center;
+        font-weight: 600;
+        color: #5a5a5a;
+        margin-bottom: 60px;
+      }
+
+      .section {
+        margin-bottom: 50px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .section-header {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .option-badge {
+        background: #ff8c00;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .section-description {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .section-description.important {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-radius: 6px;
+        padding: 15px;
+        color: #856404;
+        font-weight: 500;
+        margin: 20px 0;
+      }
+
+      .features-list {
+        margin: 20px 0;
+        padding-left: 20px;
+      }
+
+      .features-list li {
+        color: #555;
+        margin-bottom: 8px;
+      }
+
+      .download-section {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .download-btn {
+        background: #ff8c00;
+        color: white;
+        border: none;
+        padding: 15px 35px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .download-btn:hover {
+        background: #e6790e;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+      }
+
+      .download-icon {
+        font-size: 1.2rem;
+      }
+
+      .file-size {
+        color: #888;
+        font-size: 0.9rem;
+        margin-left: 10px;
+      }
+
+      .code-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .code-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .code-title {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .copy-btn {
+        background: #6c757d;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .copy-btn:hover {
+        background: #5a6268;
+      }
+
+      .code-block {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 6px;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+        margin-bottom: 10px;
+      }
+
+      .code-comment {
+        color: #a0aec0;
+        font-style: italic;
+      }
+
+      .link {
+        color: #ff8c00;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+
+      .arrow {
+        margin-left: 5px;
+      }
+
+      .footer {
+        color: #e2e8f0;
+        margin-top: 60px;
+      }
+
+      .footer-content {
+        display: flex;
+        gap: 20px;
+      }
+
+      .footer-section {
+        flex: 1;
+        padding: 30px 40px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .footer-section:hover {
+        background: #4a5568;
+      }
+
+      .footer-section {
+        background: #2d3748;
+        border-radius: 6px;
+      }
+
+      .footer-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #f7fafc;
+      }
+
+      .footer-description {
+        color: #a0aec0;
+        font-size: 0.95rem;
+      }
+
+      .footer-arrow {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: #a0aec0;
+        transition: transform 0.3s ease;
+      }
+
+      .footer-section:hover .footer-arrow {
+        transform: translateY(-50%) translateX(5px);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 30px 20px;
+        }
+
+        .title {
+          font-size: 1.5rem;
+          margin-bottom: 40px;
+        }
+
+        .section-header {
+          font-size: 1.2rem;
+          flex-direction: column;
+          gap: 10px;
+          align-items: flex-start;
+        }
+
+        .download-btn {
+          padding: 12px 25px;
+          font-size: 1rem;
+        }
+
+        .code-header {
+          flex-direction: column;
+          gap: 10px;
+          align-items: stretch;
+        }
+
+        .footer-content {
+          flex-direction: column;
+        }
+
+        .footer-section:not(:last-child)::after {
+          display: none;
+        }
+
+        .footer-section {
+          padding: 25px 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Get Your Free Trial of Dynamsoft Barcode Reader for the Web</h1>
+
+      <div class="section">
+        <div class="section-header">
+          <span class="option-badge">Option 1</span>
+          <span>New to our SDK?</span>
+        </div>
+        <div class="section-description">Start with the ZIP package — it includes everything you need to evaluate the SDK quickly:</div>
+        <div class="section-description important">
+          <ol class="features-list">
+            <li>Ready-to-run samples (Plain JS, React, Angular, Vue, Blazor, PWA, and more)</li>
+            <li>A 30-day trial license key embedded in all included samples</li>
+            <li>All resources required to deploy the SDK locally (no CDN dependency)</li>
+          </ol>
+        </div>
+
+        <div class="download-section">
+          <button class="download-btn" onclick="downloadZip()">
+            Download ZIP
+            <span class="download-icon">⬇</span>
+          </button>
+          <span class="file-size">(15 MB)</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <span class="option-badge">Option 2</span>
+          <span>Already working on a project?</span>
+        </div>
+        <div class="section-description important">
+          <div class="generate-btn">
+            <a href="javascript:;" onclick="generateLicense()">
+              <span class="loader"></span>
+            </a>
+            <p class="f14">
+              Unlike the ZIP package, this option requires you to manually request a trial license key. The license will be sent to your email immediately.
+            </p>
+            <button class="download-btn" onclick="generateLicense()">Generate a License</button>
+          </div>
+        </div>
+        <div class="section-description">Reference the SDK directly from CDN:</div>
+
+        <div class="code-section">
+          <div class="code-header">
+            <div class="code-title">CDN Reference</div>
+            <button class="copy-btn" onclick="copyToClipboard('cdn-install')">Copy</button>
+          </div>
+          <div class="code-block" id="cdn-install">
+            &lt;script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.0.6000/dist/dbr.bundle.js"&gt;&lt;/script&gt;
+          </div>
+        </div>
+
+        <div class="section-description">Or install the SDK via NPM:</div>
+
+        <div class="code-section">
+          <div class="code-header">
+            <div class="code-title">NPM Installation</div>
+            <button class="copy-btn" onclick="copyToClipboard('npm-install')">Copy</button>
+          </div>
+          <div class="code-block" id="npm-install">npm i dynamsoft-barcode-reader-bundle@11.0.6000 -E</div>
+
+          <div class="code-header">
+            <div class="code-title">Or with Yarn:</div>
+            <button class="copy-btn" onclick="copyToClipboard('npm-install')">Copy</button>
+          </div>
+          <div class="code-block" id="npm-install">yarn add dynamsoft-barcode-reader-bundle@11.0.6000 -E</div>
+
+          <div class="code-block">
+            <span class="code-comment">// After installation, initialize with your trial license key:</span><br />
+            <div class="code-block" id="npm-install">BarcodeReader.license = "YOUR-TRIAL-KEY-HERE";</div>
+          </div>
+        </div>
+        
+        <div class="section-description" style="margin-top: 20px; font-style: italic; color: #64748b;">
+          📖 For more information, refer to the <a href="https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/user-guide/barcode-scanner.html" target="_blank" style="color: #3b82f6; text-decoration: none;">JavaScript User Guide</a>
+        </div>
+      </div>
+
+      <div class="footer" hidden>
+        <div class="footer-content">
+          <div class="footer-section" onclick="navigateToDesktop()">
+            <div class="footer-title">Building for Desktop, Server, or Embedded?</div>
+            <div class="footer-description">Download the developer toolkits for Desktop, Server, or Embedded platforms.</div>
+            <div class="footer-arrow">→</div>
+          </div>
+          <div class="footer-section" onclick="navigateToMobile()">
+            <div class="footer-title">Building for Mobile?</div>
+            <div class="footer-description">Download the developer toolkits for Mobile platforms.</div>
+            <div class="footer-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function downloadZip() {
+        const btn = document.querySelector(".download-btn");
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Downloading... <span class="download-icon">⬇</span>';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          alert("Download started! The ZIP package contains everything you need to get started.");
+        }, 2000);
+      }
+
+      function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent;
+
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            const btn = element.parentElement.querySelector(".copy-btn");
+            const originalText = btn.textContent;
+            btn.textContent = "Copied!";
+            btn.style.background = "#28a745";
+
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = "#6c757d";
+            }, 2000);
+          })
+          .catch(() => {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+
+            alert("Command copied to clipboard!");
+          });
+      }
+
+      function requestLicense() {
+        alert("Redirecting to license request page...");
+      }
+
+      function navigateToDesktop() {
+        alert("Redirecting to Desktop/Server/Embedded toolkit download page...");
+      }
+
+      function navigateToMobile() {
+        alert("Redirecting to Mobile toolkit download page...");
+      }
+    </script>
+  </body>
+</html>
