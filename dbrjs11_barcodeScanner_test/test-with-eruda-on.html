@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Template C v11.2.1000-Alpha Candidate new "speed" template(ML-Decoder)</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./dist/dbr.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eruda/eruda.min.js"></script>
+    <script>
+      // Initialize Eruda and show it by default
+      eruda.init();
+      eruda.show(); // Show Eruda panel by default
+
+      // Listen for worker log messages
+      if (typeof Worker !== 'undefined') {
+        const originalWorker = window.Worker;
+        window.Worker = function(...args) {
+          const worker = new originalWorker(...args);
+          worker.addEventListener('message', function(e) {
+            if (e.data && e.data.type === 'log') {
+              console.log('[WORKER]', e.data.message);
+            }
+          });
+          return worker;
+        };
+      }
+
+      // Intercept fetch
+      const origFetch = window.fetch;
+      window.fetch = async function (...args) {
+        const url = args[0];
+        if (typeof url === "string" && url.includes(".wasm")) {
+          console.log("========================================");
+          console.log("🔥 WASM FILE DETECTED (fetch):");
+          console.log("Full URL:", url);
+          console.log("Filename:", url.split('/').pop());
+          console.log("========================================");
+        }
+        console.log("Fetch called:", url);
+        return origFetch.apply(this, args);
+      };
+
+      // Intercept XMLHttpRequest
+      const origXHROpen = XMLHttpRequest.prototype.open;
+      XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+        if (typeof url === "string" && url.includes(".wasm")) {
+          console.log("========================================");
+          console.log("🔥 WASM FILE DETECTED (XHR):");
+          console.log("Method:", method);
+          console.log("Full URL:", url);
+          console.log("Filename:", url.split('/').pop());
+          console.log("========================================");
+        }
+        console.log("XHR opened:", method, url);
+        return origXHROpen.call(this, method, url, ...rest);
+      };
+
+      // Intercept WebAssembly instantiation
+      if (typeof WebAssembly !== 'undefined') {
+        const origInstantiate = WebAssembly.instantiate;
+        WebAssembly.instantiate = async function(...args) {
+          console.log("========================================");
+          console.log("🔥 WebAssembly.instantiate called");
+          console.log("Arguments:", args);
+          if (args[0] instanceof ArrayBuffer || args[0] instanceof Uint8Array) {
+            console.log("Buffer size:", args[0].byteLength || args[0].length);
+          }
+          console.log("========================================");
+          return origInstantiate.apply(this, args);
+        };
+
+        const origInstantiateStreaming = WebAssembly.instantiateStreaming;
+        if (origInstantiateStreaming) {
+          WebAssembly.instantiateStreaming = async function(source, ...args) {
+            console.log("========================================");
+            console.log("🔥 WebAssembly.instantiateStreaming called");
+            console.log("Source:", source);
+            console.log("========================================");
+            return origInstantiateStreaming.call(this, source, ...args);
+          };
+        }
+      }
+
+      // Other tabs you can select include: 'elements', 'network', 'resources', 'sources', 'info', 'settings'
+    </script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.0.6000/dist/dbr.bundle.js"></script> -->
+    <!-- <script src="https://npm.scannerproxy.com:802/cdn/@dynamsoft/dynamsoft-barcode-reader-bundle@11.2.1000-dev-20250923135008/dist/dbr.bundle.js"></script> -->
+  </head>
+  <body>
+    <h1>Template C v11.2.1000-Alpha Candidate new "speed" template(ML-Decoder)</h1>
+    <script>
+      // Dynamsoft.Core.CoreModule._useMLBackend = true;
+      // Dynamsoft.Core.CoreModule._usePThread = true;
+
+      let cvRouter = null;
+      let cameraEnhancer = null;
+      let cameraView = null;
+
+      const barcodeScanner = new Dynamsoft.BarcodeScanner({
+        license:
+          "",
+        templateFilePath: "./speedml.json",
+        utilizedTemplateNames: {
+          single: `speed-ml`,
+          multi_unique: `speed-ml`,
+          image: `speed-ml`,
+        },
+        scanMode: Dynamsoft.EnumScanMode.SM_MULTI_UNIQUE,
+        onInitReady: (components) => {
+          cvRouter = components.cvRouter;
+          cameraEnhancer = components.cameraEnhancer;
+          cameraView = components.cameraView;
+          // turn off webgl fetching
+          cameraEnhancer._imageDataGetter.useWebGLByDefault = false;
+        },
+        // engineResourcePaths: {rootDirectory:"./dist"},
+        // scannerViewConfig: {
+        //   showCloseButton: true,
+        // },
+        // showUploadImageButton: true,
+        // barcodeFormats: [Dynamsoft.DBR.EnumBarcodeFormat.BF_QR_CODE , Dynamsoft.DBR.EnumBarcodeFormat.BF_CODE_128],
+      });
+      (async () => {
+        // const arrDataBases = await indexedDB.databases();
+        // const copiedArr = Array.from(arrDataBases);
+        //   for (let i of copiedArr) {
+        //     indexedDB.deleteDatabase(i.name);
+        //   }
+        // localStorage.clear();
+        const result = await barcodeScanner.launch();
+        console.log(result);
+        // for (let item of result.barcodeResults) {
+        //     alert(item.text);
+        // };
+      })();
+    </script>
+  </body>
+</html>
