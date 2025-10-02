@@ -10,14 +10,15 @@
       // Initialize Eruda and show it by default
       eruda.init();
       eruda.show(); // Show Eruda panel by default
-
+      console.log(Dynamsoft.Core.CoreModule._wasmLoadOptions);
+      Dynamsoft.Core.CoreModule._wasmLoadOptions = { wasmType: "ml-simd-pthread", pthreadPoolSize: 15 };
       // Listen for worker log messages
       if (typeof Worker !== "undefined") {
         const originalWorker = window.Worker;
         window.Worker = function (...args) {
           const worker = new originalWorker(...args);
           worker.addEventListener("message", function (e) {
-            if (e.data && e.data.type === "log") {
+            if (e.data && e.data.type === "log" && e.data.message.includes("RESOLVED PATH")) {
               console.log("[WORKER]", e.data.message);
             }
           });
@@ -36,7 +37,6 @@
           console.log("Filename:", url.split("/").pop());
           console.log("========================================");
         }
-        console.log("Fetch called:", url);
         return origFetch.apply(this, args);
       };
 
@@ -92,7 +92,6 @@
     <script>
       // Dynamsoft.Core.CoreModule._useMLBackend = true;
       // Dynamsoft.Core.CoreModule._usePThread = true;
-
       let cvRouter = null;
       let cameraEnhancer = null;
       let cameraView = null;
@@ -129,6 +128,8 @@
         //     indexedDB.deleteDatabase(i.name);
         //   }
         // localStorage.clear();
+
+        console.log(Dynamsoft.Core.CoreModule._wasmLoadOptions);
         const result = await barcodeScanner.launch();
         console.log(result);
         // for (let item of result.barcodeResults) {
