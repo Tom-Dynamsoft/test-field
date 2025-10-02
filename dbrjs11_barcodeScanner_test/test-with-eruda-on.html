@@ -12,13 +12,13 @@
       eruda.show(); // Show Eruda panel by default
 
       // Listen for worker log messages
-      if (typeof Worker !== 'undefined') {
+      if (typeof Worker !== "undefined") {
         const originalWorker = window.Worker;
-        window.Worker = function(...args) {
+        window.Worker = function (...args) {
           const worker = new originalWorker(...args);
-          worker.addEventListener('message', function(e) {
-            if (e.data && e.data.type === 'log') {
-              console.log('[WORKER]', e.data.message);
+          worker.addEventListener("message", function (e) {
+            if (e.data && e.data.type === "log") {
+              console.log("[WORKER]", e.data.message);
             }
           });
           return worker;
@@ -33,7 +33,7 @@
           console.log("========================================");
           console.log("🔥 WASM FILE DETECTED (fetch):");
           console.log("Full URL:", url);
-          console.log("Filename:", url.split('/').pop());
+          console.log("Filename:", url.split("/").pop());
           console.log("========================================");
         }
         console.log("Fetch called:", url);
@@ -42,13 +42,13 @@
 
       // Intercept XMLHttpRequest
       const origXHROpen = XMLHttpRequest.prototype.open;
-      XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+      XMLHttpRequest.prototype.open = function (method, url, ...rest) {
         if (typeof url === "string" && url.includes(".wasm")) {
           console.log("========================================");
           console.log("🔥 WASM FILE DETECTED (XHR):");
           console.log("Method:", method);
           console.log("Full URL:", url);
-          console.log("Filename:", url.split('/').pop());
+          console.log("Filename:", url.split("/").pop());
           console.log("========================================");
         }
         console.log("XHR opened:", method, url);
@@ -56,9 +56,9 @@
       };
 
       // Intercept WebAssembly instantiation
-      if (typeof WebAssembly !== 'undefined') {
+      if (typeof WebAssembly !== "undefined") {
         const origInstantiate = WebAssembly.instantiate;
-        WebAssembly.instantiate = async function(...args) {
+        WebAssembly.instantiate = async function (...args) {
           console.log("========================================");
           console.log("🔥 WebAssembly.instantiate called");
           console.log("Arguments:", args);
@@ -71,7 +71,7 @@
 
         const origInstantiateStreaming = WebAssembly.instantiateStreaming;
         if (origInstantiateStreaming) {
-          WebAssembly.instantiateStreaming = async function(source, ...args) {
+          WebAssembly.instantiateStreaming = async function (source, ...args) {
             console.log("========================================");
             console.log("🔥 WebAssembly.instantiateStreaming called");
             console.log("Source:", source);
@@ -99,7 +99,8 @@
 
       const barcodeScanner = new Dynamsoft.BarcodeScanner({
         license:
-          "",
+          "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAwLTEwMzk4OTAwMyIsIm1haW5TZXJ2ZXJVUkwiOiJodHRwczovL21sdHMuZHluYW1zb2Z0LmNvbS8iLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMCIsInN0YW5kYnlTZXJ2ZXJVUkwiOiJodHRwczovL3NsdHMuZHluYW1zb2Z0LmNvbS8iLCJjaGVja0NvZGUiOjk0NTQ3NzkxMX0=",
+
         templateFilePath: "./speedml.json",
         utilizedTemplateNames: {
           single: `speed-ml`,
